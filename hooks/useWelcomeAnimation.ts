@@ -4,32 +4,40 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export const useWelcomeAnimation = () => {
-  const [animationCompleted, setAnimationCompleted] = useState(true)
+  const [showWelcome, setShowWelcome] = useState(false)
+  const [animationCompleted, setAnimationCompleted] = useState(false)
 
   useEffect(() => {
-    const hasSeen = localStorage.getItem('welcome-animation-seen')
-    console.log('Checking localStorage:', hasSeen)
+    // Check if user has seen the animation before
+    const hasSeenAnimation = localStorage.getItem('welcome-animation-seen')
     
-    if (!hasSeen) {
-      console.log('First visit - show animation')
-      setAnimationCompleted(false)
+    console.log('🎬 Welcome Animation - Check:', { hasSeenAnimation })
+    
+    if (!hasSeenAnimation) {
+      console.log('🆕 First time visitor - showing animation')
+      setShowWelcome(true)
+    } else {
+      console.log('🔁 Returning visitor - skipping animation')
+      setAnimationCompleted(true)
     }
   }, [])
 
   const handleAnimationComplete = useCallback(() => {
-    console.log('Animation completed')
+    console.log('✅ Animation completed')
+    setShowWelcome(false)
     setAnimationCompleted(true)
     localStorage.setItem('welcome-animation-seen', 'true')
   }, [])
 
   const skipAnimation = useCallback(() => {
-    console.log('Animation skipped')
+    console.log('⏭️ Animation skipped by user')
+    setShowWelcome(false)
     setAnimationCompleted(true)
     localStorage.setItem('welcome-animation-seen', 'true')
   }, [])
 
   return {
-    showWelcome: !animationCompleted,
+    showWelcome,
     animationCompleted,
     handleAnimationComplete,
     skipAnimation,

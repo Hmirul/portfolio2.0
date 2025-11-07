@@ -14,6 +14,25 @@
   --color-accent: #0ea5e9;
 }
 
+/* globals.css */
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/sf-pro-display@4.0.0/index.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/sf-pro-text@4.0.0/index.css');
+
+.font-display {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 [data-theme='dark'],
 .dark {
   --color-bg-primary: #0a0a0a;
