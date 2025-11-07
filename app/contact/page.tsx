@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     icon: Mail,
-    href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || 'contact@example.com'}`,
+    href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || 'amirulshaubari@gmail.com'}`,
     label: 'Email',
   },
 ]
@@ -58,10 +58,10 @@ export default function ContactPage() {
                 Email
               </h3>
               <a
-                href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'contact@example.com'}`}
+                href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'amirulshaubari@gmail.com'}`}
                 className="text-accent-500 hover:text-accent-600 transition-colors break-all"
               >
-                {process.env.NEXT_PUBLIC_EMAIL || 'contact@example.com'}
+                {process.env.NEXT_PUBLIC_EMAIL || 'amirulshaubari@gmail.com'}
               </a>
             </div>
 

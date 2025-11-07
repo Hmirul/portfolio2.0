@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'E-Commerce Platform',
+    title: 'Test',
     description: 'A modern e-commerce platform with real-time inventory management',
     longDescription:
       'Built a full-stack e-commerce platform with Next.js, featuring real-time inventory management, payment processing with Stripe, and an admin dashboard for product management.',
