@@ -81,7 +81,7 @@ export function AboutSection() {
           </motion.h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {aboutData.values.map((value, index) => (
+            {aboutData.values.map((value, _) => (
               <motion.div
                 key={value.title}
                 variants={itemVariants}

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { ProjectGrid } from '@/components/ProjectGrid'
 import { projects } from '@/lib/projects'
 

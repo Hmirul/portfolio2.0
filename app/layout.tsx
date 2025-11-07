@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProviderClient } from '@/components/ThemeProviderClient'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import './globals.css'
@@ -25,13 +25,13 @@ export default function RootLayout({
         <meta name="theme-color" content="#fafafa" />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProviderClient>
           <Navbar />
           <main className="min-h-screen">
             {children}
           </main>
           <Footer />
-        </ThemeProvider>
+        </ThemeProviderClient>
       </body>
     </html>
   )

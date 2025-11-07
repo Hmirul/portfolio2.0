@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, Twitter } from 'lucide-react'
 import { ContactForm } from '@/components/ContactForm'
 
+// framer-motion is a client-side library; avoid importing it in a server component
 export const metadata = {
   title: 'Contact | Portfolio',
   description: 'Get in touch with me. I\'d love to hear from you!',
@@ -35,19 +35,14 @@ export default function ContactPage() {
     <main className="min-h-screen pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold font-display text-slate-900 dark:text-slate-50 mb-4">
             Get in Touch
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? Feel free to reach out. I&apos;m always interested in hearing about new opportunities and collaborations.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact form */}
@@ -56,13 +51,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {/* Email */}
             <div>
               <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-2 uppercase tracking-wide">
@@ -106,7 +95,7 @@ export default function ContactPage() {
                 <strong>Response time:</strong> I typically respond within 24 hours.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>
