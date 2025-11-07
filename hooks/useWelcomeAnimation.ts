@@ -1,30 +1,29 @@
-// hooks/useWelcomeAnimation.ts - SIMPLIFIED VERSION
+// hooks/useWelcomeAnimation.ts
+'use client'
+
 import { useCallback, useEffect, useState } from 'react'
 
 export const useWelcomeAnimation = () => {
-  const [animationCompleted, setAnimationCompleted] = useState(true) // Default true
+  const [animationCompleted, setAnimationCompleted] = useState(true)
 
   useEffect(() => {
     const hasSeen = localStorage.getItem('welcome-animation-seen')
-    console.log('🔍 Checking localStorage:', hasSeen)
+    console.log('Checking localStorage:', hasSeen)
     
     if (!hasSeen) {
-      console.log('🎬 First visit - show animation')
+      console.log('First visit - show animation')
       setAnimationCompleted(false)
-    } else {
-      console.log('✅ Returning visitor - skip animation')
-      setAnimationCompleted(true)
     }
   }, [])
 
   const handleAnimationComplete = useCallback(() => {
-    console.log('🏁 Animation finished')
+    console.log('Animation completed')
     setAnimationCompleted(true)
     localStorage.setItem('welcome-animation-seen', 'true')
   }, [])
 
   const skipAnimation = useCallback(() => {
-    console.log('⏭️ Animation skipped')
+    console.log('Animation skipped')
     setAnimationCompleted(true)
     localStorage.setItem('welcome-animation-seen', 'true')
   }, [])
