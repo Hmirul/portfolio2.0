@@ -1,7 +1,7 @@
 // components/WelcomeAnimation.tsx
 'use client'
 
-import { motion, useAnimation, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { useEffect, useState, useCallback, useRef } from 'react'
 import { X } from 'lucide-react'
 
@@ -209,7 +209,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
   }, [])
 
   useEffect(() => {
-    if (currentPhase >= 2) { // Start particles in phase 3
+    if (currentPhase >= 2) {
       animationRef.current = requestAnimationFrame(function animate() {
         animateParticles()
         animationRef.current = requestAnimationFrame(animate)
@@ -352,7 +352,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               }}
             />
 
-            {/* Floating Geometric Shapes */}
+            {/* Floating Geometric Shapes - FIXED: Removed duplicate animate prop */}
             {geometricShapes.map((i) => (
               <motion.div
                 key={i}
@@ -376,8 +376,6 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
                   ease: "easeInOut",
                   delay: i * 0.3,
                 }}
-                initial="hidden"
-                animate={backgroundControls}
               />
             ))}
 
@@ -422,7 +420,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
                   transformStyle: 'preserve-3d',
                 }}
               >
-                <span className="text-white dark:text-black text-3xl font-bold font-['SF_Pro_Display'] tracking-tight">
+                <span className="text-white dark:text-black text-3xl font-bold tracking-tight">
                   MAH
                 </span>
                 <div className="absolute inset-0 rounded-3xl border border-white/10 dark:border-black/10 shadow-inner" />
@@ -435,7 +433,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
                 className="inline-block overflow-hidden whitespace-nowrap"
                 variants={typewriterVariants}
               >
-                <span className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light font-['SF_Pro_Text'] tracking-wide">
+                <span className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light tracking-wide">
                   Hi, I&apos;m
                 </span>
                 <motion.span
@@ -448,7 +446,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
 
             {/* Name with Letter-by-Letter Animation */}
             <motion.h1
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-50 mb-12 tracking-tight font-['SF_Pro_Display']"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-50 mb-12 tracking-tight"
               initial="hidden"
               animate={textControls}
             >
@@ -476,7 +474,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               initial="hidden"
               animate={currentPhase >= 3 ? "visible" : "hidden"}
             >
-              <h2 className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 font-light font-['SF_Pro_Text'] tracking-wide mb-4">
+              <h2 className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 font-light tracking-wide mb-4">
                 Welcome to My Portfolio
               </h2>
               <motion.div
@@ -493,7 +491,7 @@ const WelcomeAnimation = ({ onComplete }: WelcomeAnimationProps) => {
               initial="hidden"
               animate={currentPhase >= 3 ? "visible" : "hidden"}
             >
-              <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium font-['SF_Pro_Text'] bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-400 dark:to-slate-200 bg-clip-text text-transparent">
+              <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-400 dark:to-slate-200 bg-clip-text text-transparent">
                 Engineering Digital Excellence
               </p>
             </motion.div>

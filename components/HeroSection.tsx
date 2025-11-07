@@ -32,14 +32,14 @@ const itemVariants = {
 }
 
 export function HeroSection() {
-  const { showWelcome, handleAnimationComplete, animationCompleted } = useWelcomeAnimation()
+  const { handleAnimationComplete, animationCompleted } = useWelcomeAnimation() // ✅ REMOVED showWelcome
 
   // Don't show hero section until welcome animation is completed
   if (!animationCompleted) {
     return (
       <>
         <WelcomeAnimation onComplete={handleAnimationComplete} />
-        {/* Show loading state */}
+        {/* Show loading state or nothing */}
         <div className="min-h-screen bg-white dark:bg-slate-900" />
       </>
     )
